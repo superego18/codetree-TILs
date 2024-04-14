@@ -20,6 +20,7 @@ chat_list[0] = chat(0, -1, -1)
 # TODO: Node가 순서대로 안 들어오는 경우?
 for i in range(1, N+1): # Node 1 ~ N 
     chat_list[i] = chat(i, list_100[i], list_100[i+N])
+for i in range(1, N+1):
     chat_list[list_100[i]].c.add(i)
 
 def print_chat(): # 모든 채팅방 정보 확인
