@@ -25,6 +25,7 @@ for i in range(1, N+1):
 
 def print_chat(): # 모든 채팅방 정보 확인
     global chat_list
+    print()
     for i in chat_list:
         print(i.i, i.p, i.d, i.n, i.c)
     print()
@@ -44,6 +45,8 @@ def swap(i, j):
     global chat_list
     i_p = chat_list[i].p
     j_p = chat_list[j].p
+    if i_p == j_p:
+        return
     chat_list[i].p, chat_list[j].p = j_p, i_p
     chat_list[i_p].c.remove(i)
     chat_list[i_p].c.add(j)
@@ -59,7 +62,7 @@ def DFS(i, depth=1):
                 cnt += 1
             depth_tmp = depth + 1
             DFS(c, depth_tmp)
-            
+     
 for _ in range(Q-1):
     i_list = list(map(int, input().split()))
     q = i_list[0]
@@ -69,7 +72,7 @@ for _ in range(Q-1):
         power(i_list[1], i_list[2])
     elif q == 400:
         swap(i_list[1], i_list[2])
-    elif q == 500:
+    elif q == 500: 
         cnt = 0
         DFS(i_list[1])
         print(cnt)
